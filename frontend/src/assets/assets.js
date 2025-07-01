@@ -57,7 +57,6 @@ import p_img52 from './p_img52.png'
 import final_logo from './final_logo.png'
 import velura_logo_white from './Velura_logo_white.png'
 import velura_logo_cleaned from './Velura_logo_cleaned.png'
-import logo from './logo.png'
 import hero_img from './hero_img.png'
 import cart_icon from './cart_icon.png'
 import bin_icon from './bin_icon.png'
@@ -75,12 +74,14 @@ import contact_img from './contact_img.png'
 import razorpay_logo from './razorpay_logo.png'
 import stripe_logo from './stripe_logo.png'
 import cross_icon from './cross_icon.png'
+import eyes_icon from './eyes_icon.png'
+import eyecross from './eyecross.png'
+import eye from './eye.jpg'
 
 export const assets = {
     final_logo,
     velura_logo_white,
     velura_logo_cleaned,
-    logo,
     hero_img,
     cart_icon,
     dropdown_icon,
@@ -97,7 +98,10 @@ export const assets = {
     contact_img,
     razorpay_logo,
     stripe_logo,
-    cross_icon
+    cross_icon,
+    eyes_icon,
+    eyecross,
+    eye
 }
 
 export const products = [
