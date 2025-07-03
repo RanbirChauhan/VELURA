@@ -122,19 +122,33 @@ const Navbar = () => {
       </div>
 
       {/* Sidebar Menu for Mobile */}
-      <div className={`absolute top-0 right-0 bottom-0 overflow-hidden bg-[#f9f6f0] transition-all duration-300 ${visible ? 'w-full' : 'w-0'}`}>
-        <div className='flex flex-col text-gray-700'>
-          <div onClick={() => setVisible(false)} className='flex items-center gap-4 p-3 cursor-pointer'>
-            <img src={assets.dropdown_icon} className='h-4 rotate-180' alt="dropdown" />
-            <p>Back</p>
-          </div>
-          <NavLink onClick={() => setVisible(false)} to='/' className='py-2 pl-6 border cursor-pointer'>HOME</NavLink>
-          <NavLink onClick={() => setVisible(false)} to='/collection' className='py-2 pl-6 border cursor-pointer'>COLLECTION</NavLink>
-          <NavLink onClick={() => setVisible(false)} to='/about' className='py-2 pl-6 border cursor-pointer'>ABOUT</NavLink>
-          <NavLink onClick={() => setVisible(false)} to='/contact' className='py-2 pl-6 border cursor-pointer'>CONTACT</NavLink>
+     {/* Sidebar Menu with Backdrop and Slide-in Effect */}
+{visible && (
+  <div className='fixed inset-0 z-40'>
+
+    {/* Backdrop */}
+    <div
+      className='absolute inset-0 bg-black opacity-40'
+      onClick={() => setVisible(false)}
+    ></div>
+
+    {/* Slide-in Sidebar */}
+    <div className='absolute top-0 right-0 h-full w-64 bg-[#f9f6f0] z-50 shadow-lg overflow-y-auto transform transition-transform duration-300 translate-x-0'>
+      <div className='flex flex-col text-gray-700'>
+        <div onClick={() => setVisible(false)} className='flex items-center gap-4 p-3 cursor-pointer'>
+          <img src={assets.dropdown_icon} className='h-4 rotate-180' alt="dropdown" />
+          <p>Back</p>
         </div>
+        <NavLink onClick={() => setVisible(false)} to='/' className=' py-2 pl-6 border cursor-pointer'>HOME</NavLink>
+        <NavLink onClick={() => setVisible(false)} to='/collection' className='py-2 pl-6 border cursor-pointer'>COLLECTION</NavLink>
+        <NavLink onClick={() => setVisible(false)} to='/about' className='py-2 pl-6 border cursor-pointer'>ABOUT</NavLink>
+        <NavLink onClick={() => setVisible(false)} to='/contact' className='py-2 pl-6 border cursor-pointer'>CONTACT</NavLink>
       </div>
     </div>
+    
+  </div>
+)}
+</div>
   );
 };
 
