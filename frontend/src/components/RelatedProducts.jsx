@@ -1,34 +1,44 @@
-import React from 'react'
-import { useContext,useState,useEffect } from 'react';
-import { ShopContext } from '../context/ShopContext';   
-import ProductItem from './ProductItem';
-import Title from './Title';
-// This component displays related products based on the category and subCategory passed as props.
+import React, { useContext, useState, useEffect } from 'react'
+import { Link, useParams } from 'react-router-dom'
+import { ShopContext } from '../context/ShopContext'
+import Title from './Title'
 
-const RelatedProducts = ({category,subCategory}) => {
+const RelatedProducts = ({ category, subCategory }) => {
+  const { products, currency } = useContext(ShopContext)
+  const [related, setRelated] = useState([])
+  const { productId } = useParams() // To avoid showing the same product as related
 
-    const { products } = useContext(ShopContext);
-    const [related,setRelated] = useState([]);
+  useEffect(() => {
+    if (products.length > 0) {
+      const filtered = products
+        .filter((item) =>
+          item.category === category &&
+          item.subCategory === subCategory &&
+          item._id !== productId // Avoid showing the current product
+        )
+        .slice(0, 5)
 
-    useEffect(() => {
+      setRelated(filtered)
+    }
+  }, [products, category, subCategory, productId])
 
-        if(products.length > 0) {
-            let productsCopy = products.slice();
-          productsCopy = productsCopy.filter((item)=> category === item.category);
-          productsCopy = productsCopy.filter((item) => subCategory === item.subCategory); // Displaying only the first 5 related products
-          setRelated(productsCopy.slice(0,5));
-        }
-    }, [products, category, subCategory]);
-
-    return (
+  return (
     <div className='my-24'>
-     <div className='text-center text-3xl py-2'>
+      <div className='text-center text-3xl py-2'>
         <Title text1={'RELATED'} text2={'PRODUCTS'} />
-     </div>
+      </div>
 
       <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 gap-y-6'>
-        {related.map((item,index) => (
-          <ProductItem key={index} id={item._id} image={item.image} name={item.name} price={item.price} />
+        {related.map((item) => (
+          <Link key={item._id} to={`/product/${item._id}`} className='hover:shadow-lg transition p-3'>
+            <img
+              src={item.image[0]}
+              alt={item.name}
+            
+            />
+            <h3 className='text-sm font-semibold text-gray-800 truncate'>{item.name}</h3>
+            <p className='text-sm text-gray-600'>{currency}{item.price}</p>
+          </Link>
         ))}
       </div>
     </div>

@@ -4,6 +4,7 @@ import { ShopContext } from '../context/ShopContext';
 import Title from '../components/Title';
 import { assets } from '../assets/assets';
 import CartTotal from '../components/CartTotal';
+import { toast } from 'react-toastify';
 
 const Cart = () => {
 
@@ -29,6 +30,20 @@ const Cart = () => {
     setCardData(tempData);
       }
     },[cartItems,products])
+
+     // Redirect to collection if cart is empty
+  useEffect(() => {
+    const isCartEmpty = Object.keys(cartItems).every((id) =>
+      Object.values(cartItems[id]).every((qty) => qty === 0)
+    )
+
+    if (isCartEmpty) {
+      toast.info("Your cart is now empty!")
+      setTimeout(() => {
+        navigate('/collection')
+      }, 500) // delay to let toast show before redirect
+    }
+  }, [cartItems])
 
   return (
     <div className='border-t pt-14'>

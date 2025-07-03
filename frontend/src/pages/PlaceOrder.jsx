@@ -94,7 +94,7 @@ const PlaceOrder = () => {
             navigate('/orders')
           }
           else{
-            toast.error(response.data.message)
+            toast.error(response.data.message,{ position: 'top-center' })
           }
           break;
 
@@ -103,6 +103,9 @@ const PlaceOrder = () => {
             const responseRazorpay = await axios.post(backendUrl + '/api/order/razorpay',orderData,{headers:{token}})
             if(responseRazorpay.data.success) {
               initPay(responseRazorpay.data.order);
+            }
+            else{
+              toast.error("Not Authorized Login Again",{ position: 'top-center' })
             }
 
           break;

@@ -2,10 +2,16 @@ import React,{useState,useContext} from 'react'
 import {assets} from '../assets/assets'
 import { Link, NavLink } from 'react-router-dom'
 import { ShopContext } from '../context/ShopContext'
+import { useLocation } from 'react-router-dom'
+import Searchbar from './Searchbar'
+import { toast } from 'react-toastify'
 
 const Navbar = () => {
     const [visible, setVisible] = useState(false);
     const {showSearch,setShowSearch, getCartCount,navigate, token ,setToken, setCartItems} = useContext(ShopContext);
+
+    const location = useLocation()
+    const isCollectionPage = location.pathname === '/collection'
 
     const logout = () => {
         navigate('/login')
@@ -18,6 +24,7 @@ const Navbar = () => {
     <div className='flex item-center justify-between px-2 py-5 font-medium '>
 
         <Link to='/'><img src={assets.final_logo} className='w-35 h-35' alt="" /></Link>
+
 
         <ul className='hidden sm:flex gap-8 text-sm text-gray-700'>
 
@@ -44,7 +51,14 @@ const Navbar = () => {
         </ul>
 
         <div className='flex items-center gap-8'>
-        <img onClick={() => setShowSearch(!showSearch)} src={assets.search_icon} className='w-5 cursor-pointer' alt="search" />
+        {isCollectionPage && (
+          <img
+            onClick={() => setShowSearch(!showSearch)}
+            src={assets.search_icon}
+            className='w-5 cursor-pointer'
+            alt='search'
+          />
+        )}
         <div className='group relative'>
             <img onClick={() => token ? null : navigate('/login')} src={assets.profile_icon} className='w-5 cursor-pointer' alt="profile" />
             
@@ -60,10 +74,22 @@ const Navbar = () => {
             </div> } 
         </div>
 
-        <Link to ='/cart' className='relative'>
-            <img src={assets.cart_icon} className='w-5 min-w-5 cursor-pointer' alt="cart" />
-            <span className='absolute -top-2 -right-2 bg-red-500 text-white aspect-square text-xs rounded-full px-1'>{getCartCount()}</span>
-        </Link>
+       <div
+  onClick={() => {
+    if (getCartCount() > 0) {
+      navigate('/cart')
+    } else {
+      toast.warn("Your cart is empty!", { position: "top-center" })
+    }
+  }}
+  className='relative cursor-pointer'
+>
+  <img src={assets.cart_icon} className='w-5 min-w-5' alt="cart" />
+  <span className='absolute -top-2 -right-2 bg-red-500 text-white aspect-square text-xs rounded-full px-1'>
+    {getCartCount()}
+  </span>
+</div>
+
 
         {/* sidebar menu */}
         <img onClick={() => setVisible(true)} src={assets.menu_icon} className='w-5 cursor-pointer sm:hidden' alt="menu" />
