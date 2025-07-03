@@ -44,7 +44,6 @@ const handleAddToCart = () => {
   }
 
   addToCart(productData._id, size)
-  toast.success("Added to cart!", { position: 'top-center' })
 }
 
 
