@@ -82,9 +82,9 @@ const Product = () => {
                     <button onClick={() => addToCart(productData._id, size)} className='bg-black text-white px-6 py-2 text-sm active:bg-gray-700 rounded-md'>
                      ADD TO CART
                     </button>
-                    <button className='bg-gray-200 text-gray-700 px-6 py-2 text-sm active:bg-gray-300 rounded-md ml-4'>
+                    {/* <button className='bg-gray-200 text-gray-700 px-6 py-2 text-sm active:bg-gray-300 rounded-md ml-4'>
                      ADD TO WISHLIST
-                    </button>
+                    </button> */}
                     <hr className='mt-8 sm:w-4/5' />
                     <div className='text-sm text-gray-600 mt-4 flex flex-col gap-2'>
                           <p>100% Original Product</p>
@@ -99,11 +99,10 @@ const Product = () => {
           <RelatedProducts category={productData.category} subCategory={productData.subCategory} />
 
 
-
-
+ 
           {/* Product Details Section End */}
 
-        <div className='mt-20 w-lg sm:w-2xl'> 
+        {/* <div className='mt-20 w-lg sm:w-2xl'> 
         <div className='flex mb-2 gap-2'>
               <b className='border px-5 py-3 text-sm'>Description</b>
               <p className='border px-5 py-3 text-sm text-gray-600'>Reviews (123)</p>
@@ -119,7 +118,7 @@ const Product = () => {
                   <hr className='mt-4' />
 
         </div>
-        </div>
+        </div>   */}
     </div>
   ) : <div className='opacity-0'></div>
 }
