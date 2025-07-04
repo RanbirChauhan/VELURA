@@ -1,5 +1,7 @@
 import React from 'react'
 import {assets} from '../assets/assets'
+import { Link } from 'react-router-dom'
+
 const Footer = () => {
   return (
     <div>
@@ -34,7 +36,7 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                to="/privacy-policy"
+                to="/"
                 className="hover:text-gray-800 cursor-pointer"
               >
                 Privacy Policy
