@@ -12,8 +12,9 @@ import Product from './pages/Product'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Searchbar from './components/Searchbar'
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
+import ScrollToTop from './components/ScrollToTop'
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
       <ToastContainer />
       <Navbar />
       <Searchbar />
+      <ScrollToTop />
       <Routes>
         <Route path='/' element={<Home/>} />
         <Route path='/collection' element={<Collection/>} />
