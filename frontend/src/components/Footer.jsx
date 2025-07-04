@@ -13,12 +13,34 @@ const Footer = () => {
 
         <div>
           <p className='text-xl font-medium mb-5'>COMPANY</p>
-            <ul className='flex flex-col gap-2 text-gray-600'>
-                <li className='text-gray-600 hover:text-gray-800 cursor-pointer'>Home</li>
-                <li className='text-gray-600 hover:text-gray-800 cursor-pointer'>About Us</li>
-                <li className='text-gray-600 hover:text-gray-800 cursor-pointer'>Contact Us</li>
-                <li className='text-gray-600 hover:text-gray-800 cursor-pointer'>Privacy Policy</li>
-            </ul>
+           <ul className="flex flex-col gap-2 text-gray-600">
+            <li>
+              <Link to="/" className="hover:text-gray-800 cursor-pointer">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link to="/about" className="hover:text-gray-800 cursor-pointer">
+                About Us
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/contact"
+                className="hover:text-gray-800 cursor-pointer"
+              >
+                Contact Us
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/privacy-policy"
+                className="hover:text-gray-800 cursor-pointer"
+              >
+                Privacy Policy
+              </Link>
+            </li>
+          </ul>
         </div>
 
         <div>
