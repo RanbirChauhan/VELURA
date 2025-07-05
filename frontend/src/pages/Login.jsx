@@ -107,7 +107,7 @@ const Login = () => {
           required
         />
         <span className="absolute right-[3px] top-0 cursor-pointer" onClick={ShowPassword}>
-          <img ref={ref} src={assets.eyecross} alt="Show" className="w-9 px-2 py-2 mt-1.5" />
+          <img ref={ref} src={assets.eyecross} alt="Show" className="w-9 px-2 py-2 mt-1.5" lazy-loading />
         </span>
       </div>
 

@@ -48,7 +48,7 @@ const Hero = () => {
 
         {/* Right Section */}
         <div className='w-full sm:w-1/2 overflow-hidden'>
-            <img src={RandomImage()} alt="Bestsellers" className='w-full h-150 object-cover rounded-tr-2xl shadow-lg transition-transform duration-300 ease-in-out'/>
+            <img src={RandomImage()} alt="Bestsellers" className='w-full h-150 object-cover rounded-tr-2xl shadow-lg transition-transform duration-300 ease-in-out' lazy-loading />
         </div>
     </div>
   )

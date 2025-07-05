@@ -67,6 +67,7 @@ const Navbar = () => {
             src={assets.search_icon}
             className='w-5 cursor-pointer'
             alt='search'
+            lazy-loading
           />
         )}
 
@@ -83,6 +84,7 @@ const Navbar = () => {
             src={assets.profile_icon}
             className='w-5 cursor-pointer'
             alt="profile"
+            lazy-loading
           />
           {token && profileMenuOpen && (
             <div className='absolute right-0 pt-4 z-10'>
@@ -118,6 +120,7 @@ const Navbar = () => {
           src={assets.menu_icon}
           className='w-5 cursor-pointer sm:hidden'
           alt="menu"
+          lazy-loading
         />
       </div>
 
@@ -136,7 +139,7 @@ const Navbar = () => {
     <div className='absolute top-0 right-0 h-full w-64 bg-[#f9f6f0] z-50 shadow-lg overflow-y-auto transform transition-transform duration-300 translate-x-0'>
       <div className='flex flex-col text-gray-700'>
         <div onClick={() => setVisible(false)} className='flex items-center gap-4 p-3 cursor-pointer'>
-          <img src={assets.dropdown_icon} className='h-4 rotate-180' alt="dropdown" />
+          <img src={assets.dropdown_icon} className='h-4 rotate-180' alt="dropdown" lazy-loading />
           <p>Back</p>
         </div>
         <NavLink onClick={() => setVisible(false)} to='/' className=' py-2 pl-6 border cursor-pointer'>HOME</NavLink>

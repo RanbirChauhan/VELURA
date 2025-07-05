@@ -28,9 +28,9 @@ const Searchbar = () => {
           placeholder="Search"
           className='flex-1 outline-none bg-inherit text-sm'
         />
-        <img className=' w-4' src={assets.search_icon} />
+        <img className=' w-4' src={assets.search_icon} lazy-loading />
       </div>
-      <img onClick={() => setShowSearch('')} className='inline w-3 cursor-pointer' src={assets.cross_icon} />
+      <img onClick={() => setShowSearch('')} className='inline w-3 cursor-pointer' src={assets.cross_icon} lazy-loading />
     </div>
   ) : null;
 

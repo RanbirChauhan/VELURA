@@ -7,7 +7,7 @@ const Footer = () => {
     <div>
       <div className='flex flex-col sm:grid grid-cols-[3fr_1fr_1fr] gap-14 my-10 mt-40 text-sm'>
         <div>
-            <img src={assets.final_logo} className=' w-25 h-25 mb-5' alt="Logo" />
+            <img src={assets.final_logo} className=' w-25 h-25 mb-5' alt="Logo" lazy-loading />
             <p className='w-full md:w-2/3 text-gray-600 text-center sm:text-left'>
             Our mission is to provide a seamless shopping experience for our customers, ensuring quality and satisfaction with every purchase.
             </p>
