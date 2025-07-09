@@ -48,8 +48,8 @@ const Footer = () => {
         <div>
             <p className='text-xl font-medium mb-5'>GET IN TOUCH</p>
             <ul className='flex flex-col gap-2 text-gray-600'>
-                <li className='text-gray-600 hover:text-gray-800 cursor-pointer'>Address: 123 Velura St, Fashion City</li>
-                <li className='text-gray-600 hover:text-gray-800 cursor-pointer'>Phone: +1 234 567 890</li>
+                <li className='text-gray-600 hover:text-gray-800 cursor-pointer'>Address: 123 Velura St, Fashion City <br />New Delhi</li>
+                <li className='text-gray-600 hover:text-gray-800 cursor-pointer'>Phone: +91 86034 02512</li>
                 <li className='text-gray-600 hover:text-gray-800 cursor-pointer'>Email: support@velura.com</li>
             </ul>
         </div>
