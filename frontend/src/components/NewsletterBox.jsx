@@ -1,11 +1,19 @@
-import React from 'react'
+import React,{useContext} from 'react'
+import { ShopContext } from '../context/ShopContext'
 
-const onSubmitHandler = (e) => {
-  e.preventDefault();
-}
+
 const NewsletterBox = () => {
+  const {navigate,token} = useContext(ShopContext);
+
+  const onSubmitHandler = (e) => {
+  e.preventDefault();
+  if(!token){
+    navigate('/login');
+  }
+}
+
   return (
-    <div className='text-center mb-2'>
+    <div className='text-center ml-5 mr-5 mb-2'>
       <p className='text-2xl font-medium text-gray-800'>Subscribe now & get 20% off</p>
       <p className='text-gray-600 mb-4'>Get the latest updates and offers.</p>
       <form  onSubmit={onSubmitHandler} className='flex justify-center items-center'>

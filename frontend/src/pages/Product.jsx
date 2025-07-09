@@ -61,12 +61,12 @@ const handleAddToCart = () => {
                 alt={productData.name}
                 className='w-[24%] sm:w-full sm:mb-3 flex-shrink-0 cursor-pointer'
                 onClick={() => setImage(img)}
-                lazy-loading
+                loading="lazy"
               />
             ))}
           </div>
           <div className='w-full sm:w-[80%]'>
-            <img src={image} alt={productData.name} className='w-full h-auto' lazy-loading />
+            <img src={image} alt={productData.name} className='w-full h-auto' loading="lazy" />
           </div>
         </div>
 
@@ -74,11 +74,11 @@ const handleAddToCart = () => {
         <div className='flex-1'>
           <h1 className='text-2xl font-bold mb-2'>{productData.name}</h1>
           <div className='flex items-center gap-1 mt-2'>
-            <img className="w-3.5" src={assets.star_icon} lazy-loading />
-            <img className="w-3.5" src={assets.star_icon} lazy-loading />
-            <img className="w-3.5" src={assets.star_icon} lazy-loading />
-            <img className="w-3.5" src={assets.star_icon} lazy-loading />
-            <img className="w-3.5" src={assets.star_dull_icon} lazy-loading />
+            <img className="w-3.5" src={assets.star_icon} loading="lazy" />
+            <img className="w-3.5" src={assets.star_icon} loading="lazy" />
+            <img className="w-3.5" src={assets.star_icon} loading="lazy" />
+            <img className="w-3.5" src={assets.star_icon} loading="lazy" />
+            <img className="w-3.5" src={assets.star_dull_icon} loading="lazy" />
             <p className='pl-2'>(123)</p>
           </div>
           <p className='mt-5 text-3xl font-medium'>{currency} {productData.price}</p>

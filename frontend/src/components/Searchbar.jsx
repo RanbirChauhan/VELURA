@@ -30,7 +30,7 @@ const Searchbar = () => {
         />
         <img className=' w-4' src={assets.search_icon} lazy-loading />
       </div>
-      <img onClick={() => setShowSearch('')} className='inline w-3 cursor-pointer' src={assets.cross_icon} lazy-loading />
+      <img onClick={() => setShowSearch('')} className='inline w-3 cursor-pointer' src={assets.cross_icon} loading="lazy" />
     </div>
   ) : null;
 

@@ -34,7 +34,7 @@ const RelatedProducts = ({ category, subCategory }) => {
             <img
               src={item.image[0]}
               alt={item.name}
-              lazy-loading
+              loading="lazy"
             />
             <h3 className='text-sm font-semibold text-gray-800 truncate'>{item.name}</h3>
             <p className='text-sm text-gray-600'>{currency}{item.price}</p>
